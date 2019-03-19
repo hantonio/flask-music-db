@@ -1,8 +1,9 @@
-<doctype html>
-<head>
-	<title>Flask Music Database</title>
-</head>
+{% extends "bootstrap/base.html" %}
 
+{% block title %}Flask Music Database{% endblock %}
+
+{% block content %}
+<div class="container">
 <h2>Flask Music Database</h2>
 <p><p>
 <a href="{{ url_for('.new_album') }}">New Album</a>
@@ -26,3 +27,5 @@
 	</dl>
 	<p><input type=submit value=Search></p>
 </form>
+</div>
+{% endblock %}

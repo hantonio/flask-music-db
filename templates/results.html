@@ -1,3 +1,11 @@
-<doctype html>
-<title>Search Results - Flask Music Database</title>
+{% extends "bootstrap/base.html" %}
+
+
+{% block title %}Search Results - Flask Music Database{% endblock %}
+
+{% block content %}
+<div class="container">
+<h2>Search Results</h2>
 {{ table }}
+</div>
+{% endblock %}

@@ -1,7 +1,12 @@
 <doctype html>
 <title>Edit Album - Flask Music Database</title>
 <h2>Edit Album</h2>
+{% extends "bootstrap/base.html" %}
 
+{% block title %}Edit Album - Flask Music Database{% endblock %}
+
+{% block content %}
+<div class="container">
 {% from "_formhelpers.html" import render_field %}
 <form method=post>
 	<dl>
@@ -13,3 +18,5 @@
 	</dl>
 	<p><input type=submit value=Submit>
 </form>
+</div>
+{% endblock %}
