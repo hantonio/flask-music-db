@@ -19,4 +19,3 @@ class AlbumForm(Form):
 	release_date = StringField('Release Date')
 	publisher = StringField('Publisher')
 	media_type = SelectField('Media', choices=media_types)
-	

@@ -1,11 +1,13 @@
 # test.py
 
 from app import app
+from app import admin
 from db_setup import init_db, db_session
 from forms import MusicSearchForm, AlbumForm
 from flask import flash, render_template, request, redirect
 from models import Album, Artist
 from tables import Results
+from flask_admin.contrib.sqla import ModelView
 
 init_db()
 

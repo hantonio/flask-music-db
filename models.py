@@ -1,6 +1,8 @@
 # models.py
 
 from app import db
+from app import admin
+from flask_admin.contrib.sqla import ModelView
 
 class Artist(db.Model):
 	__tablename__ = 'artists'
@@ -8,6 +10,8 @@ class Artist(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String)
 
+	
+	
 	def __repr__(self):
 		return "{}".format(self.name)
 
@@ -23,3 +27,7 @@ class Album(db.Model):
 
 	artist_id = db.Column(db.Integer, db.ForeignKey("artists.id"))
 	artist = db.relationship("Artist", backref=db.backref("albums"), order_by=id, lazy=True)
+
+
+admin.add_view(ModelView(Artist, db.session))
+admin.add_view(ModelView(Album, db.session))
