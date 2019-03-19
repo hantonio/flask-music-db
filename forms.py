@@ -1,6 +1,8 @@
 # forms.py
 
-from wtforms import Form, StringField, SelectField
+from wtforms import Form, StringField, SelectField, PasswordField, BooleanField, validators
+from wtforms.fields.html5 import EmailField
+from flask_security import LoginForm
 
 class MusicSearchForm(Form):
 	choices = [('Artist', 'Artist'),
@@ -19,3 +21,8 @@ class AlbumForm(Form):
 	release_date = StringField('Release Date')
 	publisher = StringField('Publisher')
 	media_type = SelectField('Media', choices=media_types)
+
+class ExtendedLoginForm(LoginForm):
+    email = EmailField('Email', [validators.DataRequired(message='email is required '), validators.Email(message='invalid email address')])
+    password = PasswordField('Password', [validators.DataRequired(message='password is required')])
+    remember = BooleanField('Remember Me')
